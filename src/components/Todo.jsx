@@ -21,16 +21,21 @@ function Todo({
 
   const todoStatus = async () => {
     try {
-      const res = await fetch(!Checked ? "/complete" : "/undocomplete", {
-        method: "POST",
-        body: JSON.stringify({
-          userId,
-          todoId,
-        }),
-        headers: {
-          "Content-type": "application/json",
-        },
-      });
+      const res = await fetch(
+        !Checked
+          ? "https://mern-todo-server-rv4m.onrender.com/complete"
+          : "https://mern-todo-server-rv4m.onrender.com/undocomplete",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            userId,
+            todoId,
+          }),
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
 
       const data = await res.json();
       console.log(data);
@@ -41,16 +46,19 @@ function Todo({
 
   const deleteTodo = async () => {
     try {
-      const res = await fetch("/delete", {
-        method: "POST",
-        body: JSON.stringify({
-          userId,
-          todoId,
-        }),
-        headers: {
-          "Content-type": "application/json",
-        },
-      });
+      const res = await fetch(
+        "https://mern-todo-server-rv4m.onrender.com/delete",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            userId,
+            todoId,
+          }),
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
 
       const data = await res.json();
       console.log(data);

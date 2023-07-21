@@ -15,7 +15,7 @@ function EditBox({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    fetch("/edit", {
+    fetch("https://mern-todo-server-rv4m.onrender.com/edit", {
       method: "POST",
       body: JSON.stringify({
         userId,

@@ -13,14 +13,17 @@ function Dashboard() {
 
   const userAuthenticated = async () => {
     try {
-      const res = await fetch("/auth", {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      });
+      const res = await fetch(
+        "https://mern-todo-server-rv4m.onrender.com/auth",
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        }
+      );
 
       const data = await res.json();
       console.log(data);
@@ -43,15 +46,18 @@ function Dashboard() {
 
   const fetchTodos = async (userId) => {
     try {
-      const res = await fetch("/todos", {
-        method: "POST",
-        body: JSON.stringify({
-          userId,
-        }),
-        headers: {
-          "Content-type": "application/json",
-        },
-      });
+      const res = await fetch(
+        "https://mern-todo-server-rv4m.onrender.com/todos",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            userId,
+          }),
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
 
       const data = await res.json();
       console.log(data);
@@ -74,7 +80,7 @@ function Dashboard() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    fetch("/new", {
+    fetch("https://mern-todo-server-rv4m.onrender.com/new", {
       method: "POST",
       body: JSON.stringify({
         _id: User._id,

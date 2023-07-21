@@ -8,14 +8,17 @@ function Navbar() {
 
   const userAuthenticated = async () => {
     try {
-      const res = await fetch("/auth", {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      });
+      const res = await fetch(
+        "https://mern-todo-server-rv4m.onrender.com/auth",
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        }
+      );
 
       const data = await res.json();
       setUser(data);
@@ -30,7 +33,7 @@ function Navbar() {
   };
 
   const logout = () => {
-    fetch("/logout", {
+    fetch("https://mern-todo-server-rv4m.onrender.com/logout", {
       method: "GET",
       headers: {
         Accept: "application/json",

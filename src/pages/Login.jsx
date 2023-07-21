@@ -10,7 +10,7 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    fetch("/login", {
+    fetch("https://mern-todo-server-rv4m.onrender.com/login", {
       method: "POST",
       body: JSON.stringify({
         email: Email,
@@ -32,14 +32,17 @@ function Login() {
 
   const userAuthenticated = async () => {
     try {
-      const res = await fetch("/auth", {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      });
+      const res = await fetch(
+        "https://mern-todo-server-rv4m.onrender.com/auth",
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        }
+      );
 
       const data = await res.json();
       console.log(data);

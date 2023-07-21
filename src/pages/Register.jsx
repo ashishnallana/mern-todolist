@@ -12,7 +12,7 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    fetch("/register", {
+    fetch("https://mern-todo-server-rv4m.onrender.com/register", {
       method: "POST",
       body: JSON.stringify({
         name: Name,
@@ -36,14 +36,17 @@ function Register() {
 
   const userAuthenticated = async () => {
     try {
-      const res = await fetch("/auth", {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      });
+      const res = await fetch(
+        "https://mern-todo-server-rv4m.onrender.com/auth",
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        }
+      );
 
       const data = await res.json();
       console.log(data);
